@@ -1,4 +1,0 @@
-function root = nr(f, df, estimation, tolerance)
-    x_0 = estimation;
-    while ~equalWithTolerance(f(x_0), 0, tolerance)
-        x_0 = x - (f())
