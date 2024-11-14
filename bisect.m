@@ -1,11 +1,11 @@
-function [root, iterations, estimations] = bisect(f, left, right, tolerance)
+function estimations = bisect(f, left, right, tolerance)
     iterations = 0;
-    estimations = zeros(1, 100);
+    estimations = [];
     while true
         middle = (left + right) / 2;
         iterations = iterations + 1;
         estimations(iterations) = middle;
-        [result, diff] = equalWithTolerance(f(middle), 0, tolerance);
+        result = equalWithTolerance(f(middle), 0, tolerance);
         if result
             break
         end
@@ -15,5 +15,4 @@ function [root, iterations, estimations] = bisect(f, left, right, tolerance)
             left = middle;
         end
     end
-    root = middle;
 end

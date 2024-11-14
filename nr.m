@@ -1,4 +1,4 @@
-function [root, iterations, estimations] = nr(f, df, estimation, tolerance)
+function estimations = nr(f, df, estimation, tolerance)
     x_0 = estimation;
     iterations = 1;
     estimations(iterations) = x_0;
@@ -7,5 +7,4 @@ function [root, iterations, estimations] = nr(f, df, estimation, tolerance)
         iterations = iterations + 1;
         estimations(iterations) = x_0;
     end
-    root = x_0;
 end
