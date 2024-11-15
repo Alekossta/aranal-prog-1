@@ -1,10 +1,10 @@
-function showErrorsAndSpeeds(estimations, root)
+function showErrorsAndSpeeds(estimations, p, root)
     errors = [];
     % this means we dont know the root
-    if(nargin == 1)
+    if(nargin == 2)
         disp("Printing speeds")
         for i=2:length(estimations) - 1
-            speed = (estimations(i+1) - estimations(i)) / (estimations(i) - estimations(i-1))^2;
+            speed = (estimations(i+1) - estimations(i)) / (estimations(i) - estimations(i-1))^p;
             disp(['Speed at index ', num2str(i), ': ', num2str(speed)]);
         end
     else % we know the root
@@ -17,7 +17,7 @@ function showErrorsAndSpeeds(estimations, root)
         % calculate and show speed
         disp("Printing speeds");
         for i = 1:length(estimations) - 1
-            speed = errors(i+1) / errors(i);
+            speed = errors(i+1) / errors(i) ^ p;
             disp(['Speed at index ', num2str(i), ': ', num2str(speed)]);
         end
     end
